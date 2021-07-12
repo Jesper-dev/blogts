@@ -1,7 +1,7 @@
 @use './styles/variables' as var;
 
 main {
-  @include var.flex-row;
+  @include var.flex-column;
   height: 100vh;
   display: flex;
 }
