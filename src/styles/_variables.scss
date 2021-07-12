@@ -1,3 +1,7 @@
+$basic-padding: 8px;
+$basic-margin: 8px;
+$heading-size-small: 1.1rem;
+
 @mixin flex-row {
   display: flex;
   justify-content: center;

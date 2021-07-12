@@ -1,4 +1,11 @@
 @use './styles/variables' as var;
+@use './styles/comps/admin.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 main {
   @include var.flex-column;

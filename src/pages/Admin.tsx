@@ -1,9 +1,9 @@
-import React from "react";
+import ControlPanel from "../components/admin/ControlPanel";
 
 const Admin = () => {
   return (
     <>
-      <h1>Admin page</h1>
+      <ControlPanel />
     </>
   );
 };
