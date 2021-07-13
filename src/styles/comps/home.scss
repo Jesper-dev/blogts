@@ -31,6 +31,12 @@
         font-size: var.$heading-size-medium;
         margin: 0%;
       }
+
+      P {
+        margin: var.$basic-margin;
+        margin-bottom: 16px;
+        margin-left: 0%;
+      }
     }
   }
 }
