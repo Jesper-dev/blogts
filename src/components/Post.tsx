@@ -1,7 +1,7 @@
 interface Props {
-  title: string;
-  text: string;
-  date: string;
+  title?: string;
+  text?: string;
+  date?: string;
 }
 
 const Post = ({ title, text, date }: Props): JSX.Element => {
