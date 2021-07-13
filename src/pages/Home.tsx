@@ -18,7 +18,7 @@ const Home = () => {
       let items = snapshot.val();
       let array: Array<Provider> = [];
       for (const key in items) {
-        array.push(items[key]);
+        array.unshift(items[key]);
       }
       setState((prevState) => ({ ...prevState, list: array, loading: false }));
     });

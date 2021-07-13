@@ -1,21 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { postsRef } from "../../firebase";
+
+class Post {
+  title: string;
+  text: string;
+  date: Date;
+  id: string;
+
+  constructor(title: string, text: string, date: Date) {
+    this.title = title;
+    this.text = text;
+    this.date = date;
+    this.id = Date.now().toString();
+  }
+}
 
 const ControlPanel = () => {
   const [state, setState] = useState<{ title: string; text: string }>({
     title: "",
     text: "",
   });
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(state.title, state.text);
+    let date: Date = new Date();
+    let postItem = new Post(state.title, state.text, date);
+    console.log("New Post Item Is: ", postItem);
     setState((prevState) => ({ ...prevState, title: "" }));
     setState((prevState) => ({ ...prevState, text: "" }));
-  };
-  const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setState((prevState) => ({ ...prevState, title: e.target.value }));
-  };
-  const onChangeText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setState((prevState) => ({ ...prevState, text: e.target.value }));
+    postsRef.child(postItem.id).set(postItem);
   };
 
   return (
@@ -25,7 +38,9 @@ const ControlPanel = () => {
         <input
           type="text"
           id="title"
-          onChange={(e) => onChangeTitle(e)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setState((prevState) => ({ ...prevState, title: e.target.value }))
+          }
           value={state.title}
           placeholder="Hello Jesper"
         />
@@ -35,7 +50,9 @@ const ControlPanel = () => {
         <textarea
           id="text"
           value={state.text}
-          onChange={(e) => onChangeText(e)}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+            setState((prevState) => ({ ...prevState, text: e.target.value }))
+          }
           placeholder="Write here Jesper"
         />
       </label>
