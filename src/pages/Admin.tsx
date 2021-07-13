@@ -7,6 +7,7 @@ interface Provider {
   title?: string;
   text?: string;
   date?: Date;
+  id?: string | undefined;
 }
 
 const Admin = () => {
@@ -36,6 +37,7 @@ const Admin = () => {
                 title={item.title}
                 text={item.text}
                 date={item.date}
+                id={item.id}
               />
             );
           })}

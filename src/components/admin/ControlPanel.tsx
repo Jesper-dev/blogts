@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { postsRef } from "../../firebase";
 
+interface Item {
+  title: string;
+}
+
 class Post {
   title: string;
   text: string;
@@ -12,6 +16,10 @@ class Post {
     this.text = text;
     this.date = date;
     this.id = Date.now().toString();
+  }
+
+  addPost(item: Item) {
+    postsRef.child(item.title).set(item);
   }
 }
 
@@ -33,7 +41,8 @@ const ControlPanel = () => {
     console.log("New Post Item Is: ", postItem);
     setState((prevState) => ({ ...prevState, title: "" }));
     setState((prevState) => ({ ...prevState, text: "" }));
-    postsRef.child(postItem.id).set(postItem);
+    // postsRef.child(postItem.id).set(postItem);
+    postItem.addPost(postItem);
   };
 
   return (
