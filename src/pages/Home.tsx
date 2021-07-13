@@ -5,7 +5,7 @@ import { postsRef } from "../firebase";
 interface Provider {
   title?: string;
   text?: string;
-  date?: string;
+  date?: Date;
 }
 
 const Home = () => {

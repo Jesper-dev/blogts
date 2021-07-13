@@ -1,10 +1,12 @@
+import React from "react";
+
 interface Props {
   title?: string;
   text?: string;
   date?: Date;
 }
 
-const Post = ({ title, text, date }: Props): JSX.Element => {
+const PostAdmin = ({ title, text, date }: Props): JSX.Element => {
   return (
     <div>
       <h1>{title}</h1>
@@ -14,4 +16,4 @@ const Post = ({ title, text, date }: Props): JSX.Element => {
   );
 };
 
-export default Post;
+export default PostAdmin;

@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { postsRef } from "../../firebase";
 
 class Post {
   title: string;
   text: string;
-  date: Date;
+  date: string;
   id: string;
 
-  constructor(title: string, text: string, date: Date) {
+  constructor(title: string, text: string, date: string) {
     this.title = title;
     this.text = text;
     this.date = date;
@@ -24,7 +24,12 @@ const ControlPanel = () => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let date: Date = new Date();
-    let postItem = new Post(state.title, state.text, date);
+    let dateString = date.toString();
+    let postItem = new Post(
+      state.title,
+      state.text,
+      dateString.slice(0, 21).trim()
+    );
     console.log("New Post Item Is: ", postItem);
     setState((prevState) => ({ ...prevState, title: "" }));
     setState((prevState) => ({ ...prevState, text: "" }));
