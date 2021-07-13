@@ -8,10 +8,11 @@ interface Props {
 
 const PostAdmin = ({ title, text, date }: Props): JSX.Element => {
   return (
-    <div>
+    <div className="postAdmin">
       <h1>{title}</h1>
       <p>{text}</p>
       <span>{date}</span>
+      <button>Delete</button>
     </div>
   );
 };

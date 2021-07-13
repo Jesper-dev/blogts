@@ -24,21 +24,23 @@ const Home = () => {
     });
   }, [state.loading]);
   return (
-    <>
-      <h1>Home lol</h1>
-      <section>
-        {state.list.map((item, i) => {
-          return (
-            <Post
-              key={i}
-              title={item.title}
-              text={item.text}
-              date={item.date}
-            />
-          );
-        })}
+    <section className="homePage">
+      <h1>Posts:</h1>
+      <section className="postSection">
+        <div className="postContainer">
+          {state.list.map((item, i) => {
+            return (
+              <Post
+                key={i}
+                title={item.title}
+                text={item.text}
+                date={item.date}
+              />
+            );
+          })}
+        </div>
       </section>
-    </>
+    </section>
   );
 };
 

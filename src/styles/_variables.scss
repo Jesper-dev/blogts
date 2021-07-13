@@ -1,6 +1,9 @@
 $basic-padding: 8px;
 $basic-margin: 8px;
 $heading-size-small: 1.1rem;
+$heading-size-medium: 1.3rem;
+$heading-size-large: 1.6rem;
+$heading-size-larger: 1.8rem;
 
 @mixin flex-row {
   display: flex;
@@ -13,4 +16,14 @@ $heading-size-small: 1.1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@mixin basic-button {
+  margin: $basic-margin;
+  outline: none;
+  background: none;
+  border: 1px solid black;
+  padding: 8px 16px;
+  cursor: pointer;
+  text-transform: uppercase;
 }

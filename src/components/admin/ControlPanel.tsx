@@ -37,32 +37,34 @@ const ControlPanel = () => {
   };
 
   return (
-    <form onSubmit={(e) => onSubmit(e)}>
-      <label htmlFor="title">
-        title:
-        <input
-          type="text"
-          id="title"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setState((prevState) => ({ ...prevState, title: e.target.value }))
-          }
-          value={state.title}
-          placeholder="Hello Jesper"
-        />
-      </label>
-      <label htmlFor="text">
-        text:
-        <textarea
-          id="text"
-          value={state.text}
-          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-            setState((prevState) => ({ ...prevState, text: e.target.value }))
-          }
-          placeholder="Write here Jesper"
-        />
-      </label>
-      <button>Submit</button>
-    </form>
+    <section className="controlPanelSection">
+      <form onSubmit={(e) => onSubmit(e)}>
+        <label htmlFor="title">
+          title:
+          <input
+            type="text"
+            id="title"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setState((prevState) => ({ ...prevState, title: e.target.value }))
+            }
+            value={state.title}
+            placeholder="Hello Jesper"
+          />
+        </label>
+        <label htmlFor="text">
+          text:
+          <textarea
+            id="text"
+            value={state.text}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+              setState((prevState) => ({ ...prevState, text: e.target.value }))
+            }
+            placeholder="Write here Jesper"
+          />
+        </label>
+        <button>Submit</button>
+      </form>
+    </section>
   );
 };
 

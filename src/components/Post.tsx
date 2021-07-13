@@ -6,10 +6,12 @@ interface Props {
 
 const Post = ({ title, text, date }: Props): JSX.Element => {
   return (
-    <div>
+    <div className="post">
       <h1>{title}</h1>
       <p>{text}</p>
-      <span>{date}</span>
+      <span>
+        <strong>{date}</strong>
+      </span>
     </div>
   );
 };
