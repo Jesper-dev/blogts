@@ -24,9 +24,14 @@ class Post {
 }
 
 const ControlPanel = () => {
-  const [state, setState] = useState<{ title: string; text: string }>({
+  const [state, setState] = useState<{
+    title: string;
+    text: string;
+    popup: boolean;
+  }>({
     title: "",
     text: "",
+    popup: false,
   });
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,6 +48,10 @@ const ControlPanel = () => {
     setState((prevState) => ({ ...prevState, text: "" }));
     // postsRef.child(postItem.id).set(postItem);
     postItem.addPost(postItem);
+    setState((prevState) => ({ ...prevState, popup: true }));
+    setTimeout(() => {
+      setState((prevState) => ({ ...prevState, popup: false }));
+    }, 2000);
   };
 
   return (
@@ -73,6 +82,7 @@ const ControlPanel = () => {
         </label>
         <button>Submit</button>
       </form>
+      {state.popup ? <span>Post added with success</span> : null}
     </section>
   );
 };

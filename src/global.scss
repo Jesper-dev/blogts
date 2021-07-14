@@ -1,6 +1,7 @@
 @use './styles/variables' as var;
 @use './styles/comps/admin.scss';
 @use './styles/comps/home.scss';
+@use './styles/comps/navbar.scss';
 
 body {
   margin: 0;

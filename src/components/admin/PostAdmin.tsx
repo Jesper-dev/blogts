@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { postsRef } from "../../firebase";
 
 interface Props {
@@ -14,12 +14,21 @@ const PostAdmin = ({
   date,
   id = "",
 }: Props): JSX.Element => {
-  // let ID = id ? id : undefined;
-  // console.log(id);
+  const [state, setState] = useState<{
+    popup: boolean;
+  }>({
+    popup: false,
+  });
+
+  useEffect(() => {
+    setTimeout(() => {
+      setState((prevState) => ({ ...prevState, popup: false }));
+    }, 3000);
+  }, [state.popup]);
+
   const deletePost = (id: string) => {
-    console.log(id);
     postsRef.child(id).remove();
-    console.log("Deleted");
+    setState((prevState) => ({ ...prevState, popup: true }));
   };
   return (
     <div className="postAdmin">
@@ -27,6 +36,9 @@ const PostAdmin = ({
       <p>{text}</p>
       <span>{date}</span>
       <button onClick={() => deletePost(id)}>Delete</button>
+      {state.popup ? (
+        <span className="popup">Post deleted with success</span>
+      ) : null}
     </div>
   );
 };

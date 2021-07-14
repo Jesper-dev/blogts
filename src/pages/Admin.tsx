@@ -27,6 +27,7 @@ const Admin = () => {
   }, [state.loading]);
   return (
     <>
+      {/* Innan man kommer till allt detta så ska man vara tvungen att slå ett lösenord*/}
       <ControlPanel />
       <section className="postSectionAdmin">
         <div className="containerAdmin">

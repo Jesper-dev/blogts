@@ -36,4 +36,8 @@ $text-color: #000;
   padding: 8px 16px;
   cursor: pointer;
   text-transform: uppercase;
+
+  &:hover {
+    border-radius: 20px;
+  }
 }

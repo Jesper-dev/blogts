@@ -48,6 +48,17 @@
       @include var.basic-button;
     }
   }
+
+  span {
+    position: fixed;
+    bottom: 5%;
+    font-size: var.$text-size-medium;
+    text-transform: uppercase;
+    color: green;
+    padding: 8px;
+    background-color: lightgray;
+    box-shadow: 0px 0px 5px 5px black;
+  }
 }
 
 .postSectionAdmin {
@@ -83,6 +94,17 @@
         margin: var.$basic-margin;
         margin-bottom: 16px;
         margin-left: 0%;
+      }
+
+      .popup {
+        position: fixed;
+        bottom: 5%;
+        font-size: var.$text-size-medium;
+        text-transform: uppercase;
+        color: green;
+        padding: 8px;
+        background-color: lightgray;
+        box-shadow: 0px 0px 5px 5px black;
       }
     }
   }

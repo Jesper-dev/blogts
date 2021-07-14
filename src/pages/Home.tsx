@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Post from "../components/Post";
 import { postsRef } from "../firebase";
+import Navbar from "../components/Navbar";
 
 interface Provider {
   title?: string;
@@ -25,23 +26,26 @@ const Home = () => {
     });
   }, [state.loading]);
   return (
-    <section className="homePage">
-      <section className="postSection">
-        <div className="postContainer">
-          {state.list.map((item, i) => {
-            return (
-              <Post
-                key={i}
-                title={item.title}
-                text={item.text}
-                date={item.date}
-                id={item.id}
-              />
-            );
-          })}
-        </div>
+    <>
+      <Navbar />
+      <section className="homePage">
+        <section className="postSection">
+          <div className="postContainer">
+            {state.list.map((item, i) => {
+              return (
+                <Post
+                  key={i}
+                  title={item.title}
+                  text={item.text}
+                  date={item.date}
+                  id={item.id}
+                />
+              );
+            })}
+          </div>
+        </section>
       </section>
-    </section>
+    </>
   );
 };
 
