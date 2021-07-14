@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { postsRef } from "../../firebase";
 
 interface Item {
-  title: string;
+  id: string;
 }
 
 class Post {
@@ -19,7 +19,7 @@ class Post {
   }
 
   addPost(item: Item) {
-    postsRef.child(item.title).set(item);
+    postsRef.child(item.id).set(item);
   }
 }
 

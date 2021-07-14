@@ -6,6 +6,7 @@ interface Provider {
   title?: string;
   text?: string;
   date?: Date;
+  id?: string;
 }
 
 const Home = () => {
@@ -25,7 +26,6 @@ const Home = () => {
   }, [state.loading]);
   return (
     <section className="homePage">
-      <h1>Posts:</h1>
       <section className="postSection">
         <div className="postContainer">
           {state.list.map((item, i) => {
@@ -35,6 +35,7 @@ const Home = () => {
                 title={item.title}
                 text={item.text}
                 date={item.date}
+                id={item.id}
               />
             );
           })}

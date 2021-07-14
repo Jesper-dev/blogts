@@ -8,10 +8,17 @@ interface Props {
   id?: string;
 }
 
-const PostAdmin = ({ title = "", text = "", date }: Props): JSX.Element => {
+const PostAdmin = ({
+  title = "",
+  text = "",
+  date,
+  id = "",
+}: Props): JSX.Element => {
   // let ID = id ? id : undefined;
-  const deletePost = (title: string) => {
-    postsRef.child(title).remove();
+  // console.log(id);
+  const deletePost = (id: string) => {
+    console.log(id);
+    postsRef.child(id).remove();
     console.log("Deleted");
   };
   return (
@@ -19,7 +26,7 @@ const PostAdmin = ({ title = "", text = "", date }: Props): JSX.Element => {
       <h1>{title}</h1>
       <p>{text}</p>
       <span>{date}</span>
-      <button onClick={() => deletePost(title)}>Delete</button>
+      <button onClick={() => deletePost(id)}>Delete</button>
     </div>
   );
 };

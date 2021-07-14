@@ -7,7 +7,7 @@ interface Provider {
   title?: string;
   text?: string;
   date?: Date;
-  id?: string | undefined;
+  id?: string;
 }
 
 const Admin = () => {

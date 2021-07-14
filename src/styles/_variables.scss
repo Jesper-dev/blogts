@@ -2,15 +2,18 @@
 
 $basic-padding: 8px;
 $basic-margin: 8px;
-$heading-size-small: 1.1rem;
-$heading-size-medium: 1.3rem;
-$heading-size-large: 1.6rem;
-$heading-size-larger: 1.8rem;
+$heading-size-small: 1.6rem;
+$heading-size-medium: 1.8rem;
+$heading-size-large: 2.2rem;
+$heading-size-larger: 2.5rem;
+$text-size-small: 1.1rem;
+$text-size-medium: 1.3rem;
+$text-size-date: 0.9rem;
 
 $font-size-global: "Encode Sans SC", sans-serif;
 
-$bg-global: #8da2b5;
-$text-color: #fff;
+$bg-global: #c8d2db;
+$text-color: #000;
 
 @mixin flex-row {
   display: flex;
