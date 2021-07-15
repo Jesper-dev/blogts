@@ -1,0 +1,43 @@
+@use '../variables' as var;
+
+.pageContainer {
+  @include var.flex-column;
+  height: 100vh;
+
+  .homeButton {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    font-size: var.$text-size-large;
+    text-decoration: none;
+    color: black;
+    @include var.basic-button;
+  }
+
+  .postContainer {
+    width: 50%;
+    border-bottom: 1px solid grey;
+
+    .titleContainer {
+      h1 {
+        margin: 0%;
+        font-size: var.$heading-size-large;
+      }
+      border-bottom: 2px solid black;
+    }
+
+    p {
+      margin: var.$basic-margin;
+      margin-left: 0%;
+      font-size: var.$text-size-medium;
+    }
+
+    .bottomContainer {
+      margin-top: 20px;
+      width: 100%;
+      span {
+        font-size: var.$text-size-date;
+      }
+    }
+  }
+}
