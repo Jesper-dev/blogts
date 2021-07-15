@@ -61,6 +61,16 @@
   }
 }
 
+.homeButton {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  font-size: var.$text-size-large;
+  text-decoration: none;
+  color: black;
+  @include var.basic-button;
+}
+
 .postSectionAdmin {
   @include var.flex-column;
   justify-content: flex-start;

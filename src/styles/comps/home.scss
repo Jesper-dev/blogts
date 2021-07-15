@@ -9,10 +9,7 @@
     height: 100vh;
 
     .postContainer {
-      // @include var.flex-column;
-      // overflow: auto;
-      min-width: 50%;
-      max-width: 50%;
+      min-width: 700px;
       height: 100vh;
       &::-webkit-scrollbar {
         width: 0;

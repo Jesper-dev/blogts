@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ControlPanel from "../components/admin/ControlPanel";
 import PostAdmin from "../components/admin/PostAdmin";
 import { postsRef } from "../firebase";
+import { Link } from "react-router-dom";
 
 interface Provider {
   title?: string;
@@ -28,6 +29,9 @@ const Admin = () => {
   return (
     <>
       {/* Innan man kommer till allt detta så ska man vara tvungen att slå ett lösenord*/}
+      <Link to="/" className="homeButton">
+        HOME
+      </Link>
       <ControlPanel />
       <section className="postSectionAdmin">
         <div className="containerAdmin">
