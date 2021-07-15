@@ -7,3 +7,5 @@
 - TypeScript
 - Sass
 - Firestore
+
+![alt text](./img/blogTsFSC.JPG)
