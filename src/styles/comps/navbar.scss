@@ -4,22 +4,28 @@ nav {
   @include var.flex-row;
   justify-content: space-between;
   padding: 8px;
-  border-bottom: 2px solid black;
   margin-bottom: 10%;
+  background-color: var.$bg-nav;
 
   h1 {
     margin-left: 5%;
     text-transform: uppercase;
   }
 
-  a {
-    margin-right: 5%;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
+  .linkContainer {
+    @include var.flex-row;
+    justify-content: space-around;
+    width: 20%;
+    a {
+      text-transform: uppercase;
+      margin-right: 5%;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
 
-    &:hover {
-      color: grey;
+      &:hover {
+        color: grey;
+      }
     }
   }
 }

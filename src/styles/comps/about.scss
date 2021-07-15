@@ -1,0 +1,17 @@
+@use '../variables' as var;
+
+.aboutPage {
+  height: 50vh;
+  @include var.flex-column;
+
+  p {
+    width: 50%;
+    font-size: var.$text-size-medium;
+
+    span {
+      a {
+        color: black;
+      }
+    }
+  }
+}
