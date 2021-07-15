@@ -2,6 +2,7 @@ import "./global.scss";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import NotFound from "./components/NotFound";
+import PostPage from "./pages/PostPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/jesperp-admin-8i" component={Admin} />
+          <Route exact path="/post/:id" component={PostPage} />
           <Route component={NotFound} />
         </Switch>
         {/* {postList.map((item, i) => {

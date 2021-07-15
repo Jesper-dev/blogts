@@ -24,7 +24,7 @@
       margin: 8px;
       // align-items: flex-start;
       border-bottom: 1px solid grey;
-      width: 100%;
+      // min-width: 500px;
       // height: 500px;
       margin-bottom: 100px;
       padding: 8px;
@@ -44,9 +44,20 @@
         font-size: var.$text-size-medium;
       }
 
-      span {
-        font-size: var.$text-size-date;
+      .bottomContainer {
+        @include var.flex-row;
+        justify-content: space-between;
         margin-top: 20px;
+        width: 100%;
+        span {
+          font-size: var.$text-size-date;
+        }
+        a {
+          @include var.basic-button;
+          padding: 4px 8px;
+          text-decoration: none;
+          color: black;
+        }
       }
     }
   }
