@@ -15,4 +15,5 @@ firebase.initializeApp(config);
 //GET A REFERENCE OF OUR DATABASE
 const databaseRef = firebase.database().ref();
 export const postsRef = databaseRef.child("posts");
+export const illudRef = databaseRef.child("illud");
 export default firebase;

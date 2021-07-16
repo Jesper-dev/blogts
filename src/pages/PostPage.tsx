@@ -34,6 +34,8 @@ const PostPage = ({ match }: RouteComponentProps<TParams>) => {
           </span>
         </div>
       </div>
+      {/* Ska adda så att man kan kommentera på en post */}
+      <button>Comment</button>
     </section>
   );
 };

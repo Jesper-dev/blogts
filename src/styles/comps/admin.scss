@@ -1,5 +1,17 @@
 @use '../variables' as var;
 
+.illudContainer {
+  @include var.flex-column;
+  height: 100vh;
+
+  input {
+    outline: none;
+    padding: 8px;
+    border: 1px solid black;
+    background: none;
+  }
+}
+
 .controlPanelSection {
   width: 100%;
   height: 100vh;
