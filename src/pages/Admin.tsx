@@ -49,7 +49,7 @@ const Admin = () => {
   };
 
   const illudCheck = () => {
-    state.illudText == state.illudValue
+    state.illudText === state.illudValue
       ? setState((prevState) => ({
           ...prevState,
           illud: false,
@@ -61,14 +61,13 @@ const Admin = () => {
   };
   return (
     <>
-      {/* Innan man kommer till allt detta så ska man vara tvungen att slå ett lösenord*/}
       <Link to="/" className="homeButton">
         HOME
       </Link>
       {state.illud ? (
         <div className="illudContainer">
           <input
-            type="text"
+            type="password"
             onChange={(e) => illudChange(e)}
             value={state.illudText}
           />

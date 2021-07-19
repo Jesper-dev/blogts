@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import NotFound from "./components/NotFound";
 import PostPage from "./pages/PostPage";
 import About from "./pages/About";
-import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {

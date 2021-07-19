@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { postsRef } from "../firebase";
 import { RouteComponentProps, Link } from "react-router-dom";
+import CommentPanel from "../components/CommentPanel";
 
 type TParams = { id: string };
 
@@ -35,7 +36,7 @@ const PostPage = ({ match }: RouteComponentProps<TParams>) => {
         </div>
       </div>
       {/* Ska adda så att man kan kommentera på en post */}
-      <button>Comment</button>
+      <CommentPanel postId={match.params.id} />
     </section>
   );
 };
