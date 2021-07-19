@@ -28,9 +28,9 @@ const PostPage = ({ match }: RouteComponentProps<TParams>) => {
   }>({ post: {}, commentList: [{}], mounted: false, commentAdded: false });
 
   useEffect(() => {
-    let newList: Array<Provider> = [];
     setState((prevState) => ({ ...prevState, commentList: [] }));
-    postsRef.child(match.params.id).once("value", (snapshot) => {
+    postsRef.child(match.params.id).on("value", (snapshot) => {
+      let newList: Array<Provider> = [];
       let value = snapshot.val();
       setState((prevState) => ({ ...prevState, post: snapshot.val() }));
       for (const key in value.comments) {
@@ -44,9 +44,8 @@ const PostPage = ({ match }: RouteComponentProps<TParams>) => {
       setState((prevState) => ({ ...prevState, post: {} }));
       setState((prevState) => ({ ...prevState, commentList: [] }));
       setState((prevState) => ({ ...prevState, commentAdded: false }));
-      newList = [];
     };
-  }, [state.mounted, match.params.id, state.commentAdded]);
+  }, [state.mounted, match.params.id]);
 
   return (
     <section className="pageContainer">
@@ -66,7 +65,7 @@ const PostPage = ({ match }: RouteComponentProps<TParams>) => {
           </div>
         </div>
       </section>
-      <CommentPanel postId={match.params.id} setStateComment={setState} />
+      <CommentPanel postId={match.params.id} />
       <Comments list={state.commentList} />
     </section>
   );

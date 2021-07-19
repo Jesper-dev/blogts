@@ -6,14 +6,6 @@ interface Provider {
 }
 interface Props {
   postId: string;
-  setStateComment: React.Dispatch<
-    React.SetStateAction<{
-      post: Object;
-      commentList: Array<Provider>;
-      mounted: boolean;
-      commentAdded: boolean;
-    }>
-  >;
 }
 
 class Comment {
@@ -28,8 +20,7 @@ class Comment {
     this.id = Date.now().toString();
   }
 }
-
-const CommentPanel = ({ postId, setStateComment }: Props) => {
+const CommentPanel = ({ postId }: Props) => {
   const [state, setState] = useState<{
     name: string;
     comment: string;
@@ -57,8 +48,6 @@ const CommentPanel = ({ postId, setStateComment }: Props) => {
       .child("comments")
       .child(newComment.id)
       .update(newComment);
-
-    setStateComment((prevState) => ({ ...prevState, commentAdded: true }));
   };
   return (
     <>
