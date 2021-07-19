@@ -7,8 +7,8 @@ import Comments from "../components/postPage/Comments";
 type TParams = { id: string };
 
 interface Provider {
-  name?: string | undefined;
-  comment?: string | undefined;
+  name?: string;
+  comment?: string;
 }
 
 interface Object {
@@ -24,12 +24,13 @@ const PostPage = ({ match }: RouteComponentProps<TParams>) => {
     post: Object;
     commentList: Array<Provider>;
     mounted: boolean;
-  }>({ post: {}, commentList: [{}], mounted: false });
+    commentAdded: boolean;
+  }>({ post: {}, commentList: [{}], mounted: false, commentAdded: false });
 
   useEffect(() => {
     let newList: Array<Provider> = [];
-    setState((prevState) => ({ ...prevState, post: {} }));
-    postsRef.child(match.params.id).on("value", (snapshot) => {
+    setState((prevState) => ({ ...prevState, commentList: [] }));
+    postsRef.child(match.params.id).once("value", (snapshot) => {
       let value = snapshot.val();
       setState((prevState) => ({ ...prevState, post: snapshot.val() }));
       for (const key in value.comments) {
@@ -41,9 +42,12 @@ const PostPage = ({ match }: RouteComponentProps<TParams>) => {
     return () => {
       setState((prevState) => ({ ...prevState, mounted: true }));
       setState((prevState) => ({ ...prevState, post: {} }));
+      setState((prevState) => ({ ...prevState, commentList: [] }));
+      setState((prevState) => ({ ...prevState, commentAdded: false }));
       newList = [];
     };
-  }, [state.mounted, match.params.id]);
+  }, [state.mounted, match.params.id, state.commentAdded]);
+
   return (
     <section className="pageContainer">
       <Link to="/" className="homeButton">
@@ -62,7 +66,7 @@ const PostPage = ({ match }: RouteComponentProps<TParams>) => {
           </div>
         </div>
       </section>
-      <CommentPanel postId={match.params.id} />
+      <CommentPanel postId={match.params.id} setStateComment={setState} />
       <Comments list={state.commentList} />
     </section>
   );

@@ -1,8 +1,19 @@
 import { useState } from "react";
 import { postsRef } from "../../firebase";
-
+interface Provider {
+  name?: string;
+  comment?: string;
+}
 interface Props {
   postId: string;
+  setStateComment: React.Dispatch<
+    React.SetStateAction<{
+      post: Object;
+      commentList: Array<Provider>;
+      mounted: boolean;
+      commentAdded: boolean;
+    }>
+  >;
 }
 
 class Comment {
@@ -18,7 +29,7 @@ class Comment {
   }
 }
 
-const CommentPanel = ({ postId }: Props) => {
+const CommentPanel = ({ postId, setStateComment }: Props) => {
   const [state, setState] = useState<{
     name: string;
     comment: string;
@@ -46,6 +57,8 @@ const CommentPanel = ({ postId }: Props) => {
       .child("comments")
       .child(newComment.id)
       .update(newComment);
+
+    setStateComment((prevState) => ({ ...prevState, commentAdded: true }));
   };
   return (
     <>
