@@ -43,7 +43,6 @@ const ControlPanel = () => {
       state.text,
       dateString.slice(0, 21).trim()
     );
-    console.log("New Post Item Is: ", postItem);
     setState((prevState) => ({ ...prevState, title: "" }));
     setState((prevState) => ({ ...prevState, text: "" }));
     // postsRef.child(postItem.id).set(postItem);

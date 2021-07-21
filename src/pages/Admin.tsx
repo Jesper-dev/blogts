@@ -39,6 +39,11 @@ const Admin = () => {
       let value = snapshot.val();
       setState((prevState) => ({ ...prevState, illudValue: value }));
     });
+
+    return () => {
+      setState((prevState) => ({ ...prevState, loading: false }));
+      setState((prevState) => ({ ...prevState, illudValue: "" }));
+    };
   }, [state.loading]);
 
   const illudChange = (e: React.ChangeEvent<HTMLInputElement>) => {
