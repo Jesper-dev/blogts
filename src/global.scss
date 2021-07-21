@@ -13,6 +13,10 @@ body {
   background-color: var.$bg-global;
   color: var.$text-color;
 
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
+
   /* width */
   &::-webkit-scrollbar {
     width: 10px;
@@ -33,9 +37,3 @@ body {
     background: #555;
   }
 }
-
-// main {
-//   @include var.flex-column;
-//   // height: 100vh;
-//   display: flex;
-// }

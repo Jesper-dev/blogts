@@ -6,25 +6,31 @@
 
   .postSection {
     @include var.flex-column;
+    align-items: flex-start;
     height: 100vh;
+    min-width: 700px;
 
-    .postContainer {
-      min-width: 700px;
+    @media screen and(max-width: var.$breakpoint-mobile) {
+      min-width: 0px;
       height: 100vh;
-      &::-webkit-scrollbar {
-        width: 0;
-      }
+      width: 99%;
     }
+
     .post {
       @include var.flex-column;
       align-items: flex-start;
       margin: 8px;
-      // align-items: flex-start;
       border-bottom: 1px solid grey;
-      // min-width: 500px;
-      // height: 500px;
-      margin-bottom: 100px;
+      min-width: 100%;
+      margin-top: 100px;
       padding: 8px;
+
+      @media (max-width: var.$breakpoint-mobile) {
+        align-items: center;
+        min-width: 90%;
+        margin: 0%;
+        margin-top: 50px;
+      }
 
       .titleContainer {
         width: 100%;
@@ -32,6 +38,10 @@
         h1 {
           font-size: var.$heading-size-large;
           margin: 0%;
+
+          @media (max-width: var.$breakpoint-mobile) {
+            font-size: var.$heading-size-small;
+          }
         }
       }
 
@@ -39,6 +49,11 @@
         margin: var.$basic-margin;
         margin-left: 0%;
         font-size: var.$text-size-medium;
+
+        @media (max-width: var.$breakpoint-mobile) {
+          margin: 0%;
+          font-size: var.$text-size-small;
+        }
       }
 
       .bottomContainer {

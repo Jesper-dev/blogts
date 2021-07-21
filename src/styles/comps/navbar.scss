@@ -7,15 +7,28 @@ nav {
   margin-bottom: 10%;
   background-color: var.$bg-nav;
 
+  @media (max-width: var.$breakpoint-mobile) {
+    @include var.flex-column;
+    margin-bottom: 50px;
+  }
+
   h1 {
     margin-left: 5%;
     text-transform: uppercase;
+
+    @media (max-width: var.$breakpoint-mobile) {
+      font-size: var.$heading-size-small;
+    }
   }
 
   .linkContainer {
     @include var.flex-row;
     justify-content: space-around;
     width: 20%;
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
+
     a {
       text-transform: uppercase;
       margin-right: 5%;

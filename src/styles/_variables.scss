@@ -17,6 +17,8 @@ $bg-global: #c8d2db;
 $bg-nav: #95a8b9;
 $text-color: #000;
 
+$breakpoint-mobile: 500px;
+
 @mixin flex-row {
   display: flex;
   justify-content: center;

@@ -30,19 +30,17 @@ const Home = () => {
       <Navbar />
       <section className="homePage">
         <section className="postSection">
-          <div className="postContainer">
-            {state.list.map((item, i) => {
-              return (
-                <Post
-                  key={i}
-                  title={item.title}
-                  text={item.text}
-                  date={item.date}
-                  id={item.id}
-                />
-              );
-            })}
-          </div>
+          {state.list.map((item, i) => {
+            return (
+              <Post
+                key={i}
+                title={item.title}
+                text={item.text}
+                date={item.date}
+                id={item.id}
+              />
+            );
+          })}
         </section>
       </section>
     </>
