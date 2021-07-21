@@ -40,9 +40,12 @@ const PostPage = ({ match }: RouteComponentProps<TParams>) => {
       let newList: Array<Provider> = [];
       let value = snapshot.val();
       setState((prevState) => ({ ...prevState, post: snapshot.val() }));
-      for (const key in value.comments) {
-        newList.unshift(value.comments[key]);
+      if (value.comments !== null) {
+        for (const key in value.comments) {
+          newList.unshift(value.comments[key]);
+        }
       }
+
       setState((prevState) => ({ ...prevState, commentList: newList }));
     });
 

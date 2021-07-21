@@ -20,12 +20,21 @@
     @include var.flex-column;
     width: 50%;
 
+    @media screen and(max-width: var.$breakpoint-mobile) {
+      margin-top: 50px;
+      width: 90%;
+    }
+
     label {
       @include var.flex-column;
       text-transform: uppercase;
       width: 40%;
       margin: var.$basic-margin;
       font-size: var.$heading-size-small;
+
+      @media screen and(max-width: var.$breakpoint-mobile) {
+        width: 100%;
+      }
 
       input {
         width: 50%;
@@ -81,6 +90,11 @@
   text-decoration: none;
   color: black;
   @include var.basic-button;
+
+  @media screen and(max-width: var.$breakpoint-mobile) {
+    font-size: var.$text-size-medium;
+    left: 60%;
+  }
 }
 
 .postSectionAdmin {
@@ -96,6 +110,10 @@
     height: 500px;
     &::-webkit-scrollbar {
       width: 0;
+    }
+
+    @media screen and(max-width: var.$breakpoint-mobile) {
+      width: 90%;
     }
 
     .postAdmin {
