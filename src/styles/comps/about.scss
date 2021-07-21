@@ -4,9 +4,17 @@
   height: 50vh;
   @include var.flex-column;
 
+  @media screen and(max-width: var.$breakpoint-mobile) {
+    height: 100vh;
+  }
+
   p {
     width: 50%;
     font-size: var.$text-size-medium;
+
+    @media screen and(max-width: var.$breakpoint-mobile) {
+      width: 90%;
+    }
 
     span {
       a {

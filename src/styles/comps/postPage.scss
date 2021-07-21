@@ -11,6 +11,11 @@
     text-decoration: none;
     color: black;
     @include var.basic-button;
+
+    @media screen and(max-width: var.$breakpoint-mobile) {
+      font-size: var.$text-size-medium;
+      left: 60%;
+    }
   }
 
   .postSection {
@@ -25,10 +30,18 @@
       width: 50%;
       border-bottom: 1px solid grey;
 
+      @media screen and(max-width: var.$breakpoint-mobile) {
+        width: 90%;
+      }
+
       .titleContainer {
         h1 {
           margin: 0%;
           font-size: var.$heading-size-large;
+
+          @media screen and(max-width: var.$breakpoint-mobile) {
+            font-size: var.$heading-size-medium;
+          }
         }
         border-bottom: 2px solid black;
       }
@@ -58,6 +71,10 @@
     @include var.flex-column;
     width: 20%;
     margin-top: 16px;
+
+    @media screen and(max-width: var.$breakpoint-mobile) {
+      width: 90%;
+    }
 
     label {
       @include var.flex-column;
@@ -93,6 +110,10 @@
     @include var.flex-column;
     width: 50%;
     align-items: flex-start;
+
+    @media screen and(max-width: var.$breakpoint-mobile) {
+      width: 90%;
+    }
 
     .commentItem {
       width: 100%;
