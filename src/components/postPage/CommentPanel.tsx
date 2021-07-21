@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { postsRef } from "../../firebase";
-interface Provider {
-  name?: string;
-  comment?: string;
-}
+
 interface Props {
   postId: string;
 }

@@ -50,6 +50,10 @@
     }
   }
 
+  .togglePanelBtn {
+    @include var.basic-button;
+  }
+
   .commentsPanel {
     @include var.flex-column;
     width: 20%;

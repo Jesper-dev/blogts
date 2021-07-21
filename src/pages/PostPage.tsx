@@ -25,7 +25,14 @@ const PostPage = ({ match }: RouteComponentProps<TParams>) => {
     commentList: Array<Provider>;
     mounted: boolean;
     commentAdded: boolean;
-  }>({ post: {}, commentList: [{}], mounted: false, commentAdded: false });
+    showPanel: boolean;
+  }>({
+    post: {},
+    commentList: [{}],
+    mounted: false,
+    commentAdded: false,
+    showPanel: false,
+  });
 
   useEffect(() => {
     setState((prevState) => ({ ...prevState, commentList: [] }));
@@ -65,7 +72,19 @@ const PostPage = ({ match }: RouteComponentProps<TParams>) => {
           </div>
         </div>
       </section>
-      <CommentPanel postId={match.params.id} />
+      {/* Jag ska göra så att man kan 'gömma' commentPanel */}
+      <button
+        className="togglePanelBtn"
+        onClick={() =>
+          setState((prevState) => ({
+            ...prevState,
+            showPanel: !state.showPanel,
+          }))
+        }
+      >
+        {state.showPanel ? "hide" : "show"}
+      </button>
+      {state.showPanel ? <CommentPanel postId={match.params.id} /> : null}
       <Comments list={state.commentList} />
     </section>
   );
